@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>圣杯布局</title>
+		<!--
+			两组实现的对比:
+				1.俩种布局方式都是把主列放在文档流最前面，使主列优先加载。
+				2.两种布局方式在实现上也有相同之处，都是让三列浮动，然后通过负外边距形成三列布局。
+				3.两种布局方式的不同之处在于如何处理中间主列的位置：
+						圣杯布局是利用父容器的左、右内边距+定位；
+						双飞翼布局是把主列嵌套在div后利用主列的左、右外边距
+		-->
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				min-width: 600px;
+			}
+			#header,#footer{
+				border: 1px solid #333;
+				background: #AAAAAA;
+				text-align: center;
+			}
+			#container{
+				overflow: hidden;
+			}
+			#left,#right,#middle{
+				background: pink;
+				float: left;
+				padding-bottom: 10000px;
+				margin-bottom: -10000px;
+			}
+			#left{
+				width: 200px;
+				margin-left: -100%;
+			}
+			#right{
+				width: 200px;
+				margin-left: -200px;
+			}
+			#middle{
+				width: 100%;
+				background: deeppink;
+			}
+			#middle-innner{
+				padding: 0 200px;
+			}
+			
+			
+			/*清浮动*/
+			.clearfix{
+				*zoom: 1;
+			}
+			.clearfix:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<h4>header</h4>
+		</div>
+		<div id="container" class="clearfix">
+			<div id="middle">
+				<div id="middle-innner">
+					<h4>middle</h4>
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+					wsc<br />
+				</div>
+			</div>
+			<div id="left">
+				<h4>left</h4>
+			</div>
+			<div id="right">
+				<h4>right</h4>
+			</div>
+		</div>
+		<div id="footer">
+			<h4>footer</h4>
+		</div>
+	</body>
+</html>

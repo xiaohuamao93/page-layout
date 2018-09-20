@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>圣杯布局</title>
+		<!--
+			1.两边固定，当中自适应
+			2.middle区域优先加载
+			3.等高布局
+			
+			
+			优点：
+				内容部分(中间列)优先加载，且实现响应宽
+				结构上仅仅添加了一个父级容器
+				任何一列都可以作为最高列
+			缺点：
+				使用了相对定位与负边距，浮动，过于复杂
+		-->
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				min-width: 600px;
+			}
+			#header,#footer{
+				border: 1px solid #333;
+				background: #AAAAAA;
+				text-align: center;
+			}
+			#container{
+				padding: 0 200px;
+				overflow: hidden;
+			}
+			
+			
+			#left,#right,#middle{
+				position: relative;
+				float: left;
+				background: pink;
+				/*min-height: 600px;*/
+				padding-bottom: 10000px;
+				margin-bottom: -10000px;
+			}
+			
+			#left{
+				margin-left: -100%;
+				width: 200px;
+				left: -200px;
+			}
+			#right{
+				margin-left: -200px;
+				width: 200px;
+				right: -200px;
+			}
+			#middle{
+				width: 100%;
+				/*padding: 0 200px;*/
+				background: deeppink;
+			}
+			
+			.clearfix{
+				/*触发了ie底下haslayout*/
+				*zoom: 1;
+			}
+			.clearfix:after{
+				content: "";
+				clear: both;
+				display: block;
+			}
+			
+			/*#footer{
+				clear: both;
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<h4>header</h4>
+		</div>
+		<div id="container" class="clearfix">
+			<div id="middle">
+				<h4>middle</h4>
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+			</div>
+			<div id="left">
+				<h4>left</h4>
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+				xfz<br />
+			</div>
+			<div id="right">
+				<h4>right</h4>
+			</div>
+		</div>
+		<div id="footer">
+			<h4>footer</h4>
+		</div>
+	</body>
+</html>

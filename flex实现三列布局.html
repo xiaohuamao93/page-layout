@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#header, #footer {
+				color: #333;
+				height: 60px;
+				line-height: 60px;
+				text-align: center;
+				background: #666;
+			}
+			#main {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			.left, .center, .right {
+				height: 60px;
+			}
+			.left {
+				order: -1;
+			}
+			.left, .right {
+				width: 200px;
+				background: goldenrod;
+			}
+			.center {
+				flex: 1;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">头部</div>
+		<div id="main">
+			<div class="center">中间gkjglasdgjsdgho34oit3iot4uio3utoiutirterkgjb</div>
+			<div class="left">左侧</div>
+			<div class="right">右侧</div>
+		</div>
+		<div id="footer">底部</div>
+	</body>
+</html>
